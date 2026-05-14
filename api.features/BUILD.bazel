@@ -5,7 +5,7 @@ load("@rules_jvm//:jvm.bzl", "jvm_library")
 create_kotlinc_options(
   name = "custom_api.features",
   opt_in = [
-    "com.intellij.openapi.util.IntellijInternalApi",
+    "com.intellij.openapi.util.InteliljInternalApi",
     "org.jetbrains.kotlin.analysis.api.KaExperimentalApi",
   ],
   x_context_parameters = True
@@ -21,15 +21,12 @@ jvm_library(
   kotlinc_opts = ":custom_api.features",
   deps = [
     "@lib//:kotlin-stdlib",
-    "@community//libraries/opentelemetry",
-    "@community//libraries/opentelemetry-extension-kotlin",
     "@community//fleet/lsp.protocol",
     "@community//fleet/rhizomedb",
     "@community//libraries/kotlinx/coroutines/core",
     "@community//platform/core-api:core",
     "@community//platform/analysis-impl",
     "@community//platform/core-impl",
-    "@community//platform/diagnostic/telemetry",
     "@community//platform/util",
     "@community//libraries/kotlinx/serialization/json",
     "@community//libraries/kotlinx/serialization/core",
@@ -47,15 +44,12 @@ jvm_library(
   kotlinc_opts = ":custom_api.features",
   runtime_deps = [
     ":api.features",
-    "@community//libraries/opentelemetry:opentelemetry_test_lib",
-    "@community//libraries/opentelemetry-extension-kotlin:opentelemetry-extension-kotlin_test_lib",
     "@community//fleet/lsp.protocol:lsp.protocol_test_lib",
     "@community//fleet/rhizomedb:rhizomedb_test_lib",
     "@community//libraries/kotlinx/coroutines/core:core_test_lib",
     "@community//platform/core-api:core_test_lib",
     "@community//platform/analysis-impl:analysis-impl_test_lib",
     "@community//platform/core-impl:core-impl_test_lib",
-    "@community//platform/diagnostic/telemetry:telemetry_test_lib",
     "@community//platform/util:util_test_lib",
     "@community//libraries/kotlinx/serialization/json:json_test_lib",
     "@community//libraries/kotlinx/serialization/core:core_test_lib",
